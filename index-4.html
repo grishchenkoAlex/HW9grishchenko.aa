@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еду в Магадан</title>
+    <style>
+        * {
+            margin-bottom: 10px;
+        }
+
+        select {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form">
+        <select class="select" name="citySelect">
+            <option value="Выберите город...">Выберите город...</option>
+            <option value="Magadan">Магадан</option>
+            <option value="Moscow">Москва</option>
+            <option value="Irkutsk">Иркутск</option>
+            <option value="Paris">Париж</option>
+        </select>
+        <button class="button">Отправить!</button>
+    </form>
+
+    <script>
+        const form = document.querySelector('.form');
+        const select = form.querySelector('.select');
+        const h1 = document.createElement('h1');
+
+        form.addEventListener('submit', () => {
+            event.preventDefault();
+
+            const formTarget = event.target;
+            location.href = `http://127.0.0.1:3000/d:/VSC/Block 3/HW9/task-4/index-4.html?citySelect=${select.value}`
+
+            document.body.appendChild(h1)
+            h1.textContent = `Еду в ${select.value}`
+            console.log(select.value)
+
+        })
+    </script>
+</body>
+
+</html>

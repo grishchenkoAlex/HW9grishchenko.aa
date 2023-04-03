@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гендерное равенство</title>
+    <script src="https://kit.fontawesome.com/21e61ebe92.js" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <div>
+            <input class="lang-radio" type="radio" name="gender" value="man">
+            <i class="fa-solid fa-person fa-flip fa-2xl" style="color: #0a60f5;"></i>
+            <input class="lang-radio" type="radio" name="gender" value="woman">
+            <i class="fa-solid fa-person-dress fa-flip fa-2xl" style="color: #ff05ea;"></i>
+        </div>
+        <button class="button">Отправить!</button>
+    </form>
+
+    <script>
+        const button = document.querySelector('.button');
+        const h1 = document.createElement('h1');
+
+        h1.textContent = 'Мужчинам вход запрещен!';
+
+        button.addEventListener('click', () => {
+            event.preventDefault();
+
+            document.querySelectorAll('.lang-radio').forEach(langRadio => {
+                if (langRadio.checked) {
+                    if (langRadio.value === 'man') {
+                        document.body.appendChild(h1);
+                        h1.textContent = 'Мужчинам вход запрещен!';
+                    } else {
+                        document.body.appendChild(h1);
+                        h1.textContent = 'Женщинам вход запрещен!';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

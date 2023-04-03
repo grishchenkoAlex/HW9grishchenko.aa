@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Логин и пароль</title>
+    <style>
+        * {
+            margin: 10px;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .right {
+            background-color: green;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="formInput" action="result.html">
+        <input name='login' type="text" placeholder="Логин">
+        <input name='password' type="password" placeholder="Пароль">
+        <button>Отправить!</button>
+    </form>
+    <script>
+        const form = document.querySelector('.formInput');
+
+        function getFiledValue(fieldElement) {
+            fieldElement.forEach(field => {
+                if (field.value) {
+                    field.classList.remove('error');
+                    field.classList.add('right');
+                } else {
+                    field.classList.remove('right');
+                    field.classList.add('error');
+                }
+            })
+        }
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const formTarget = event.target;
+
+            const inputs = formTarget.querySelectorAll('input');
+            getFiledValue(inputs);
+        })
+
+    </script>
+</body>
+
+</html>
